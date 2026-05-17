@@ -16,6 +16,7 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "e2e": "cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +38,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^12.10.0"
+    "cypress": "^12.17.4"
   }
 }
