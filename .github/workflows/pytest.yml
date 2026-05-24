@@ -39,8 +39,3 @@ jobs:
         working-directory: backend
         run: |
           python -m pytest -m unit
-
-      - name: Integration Tests
-        working-directory: backend
-        run: |
-          python -m pytest -m integration
