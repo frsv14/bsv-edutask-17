@@ -24,12 +24,12 @@ class TestUserController:
         user = {'firstName': 'John', 'lastName': 'Doe', 'email': testemail}
         mock_dao.find.return_value = [user]
 
-        result = controller.get_user_by_email("test@test.com")
+        result = controller.get_user_by_email(testemail)
 
         assert result == user
 
     @pytest.mark.unit
-    def test_get_user_multiple_unique(self, controller, mock_dao, capsys):
+    def test_get_user_multiple(self, controller, mock_dao, capsys):
         '''This tests multiple users to see what gets returned, and captures the error'''
         testemail = 'JohnDoe@bth.student.se'
         users = [{'firstName': 'John', 'lastName': 'Doe', 'email': testemail}, {'firstName': 'albin', 'lastName': 'Doe', 'email': testemail}]
@@ -52,7 +52,7 @@ class TestUserController:
         assert result is None
 
     @pytest.mark.unit
-    def test_invalidDB_email(self, controller, mock_dao):
+    def test_invalid_DB(self, controller, mock_dao):
         mock_dao.find.side_effect = Exception("DB error")
         
         with pytest.raises(Exception):
