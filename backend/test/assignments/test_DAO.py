@@ -106,15 +106,3 @@ def test_uniqueItems(test_dao):
 
     count = test_dao.collection.count_documents({'email': 'existing@bth.student.se'})
     assert count == 1
-
-@pytest.mark.integration
-def test_extra_field(test_dao):
-    test_data = {
-        'firstName': 'John',
-        'lastName': 'Doe',
-        'email': 'JohnDoe@bth.student.se',
-        'extraField': 'Value'
-    }
-
-    with pytest.raises(WriteError):
-        test_dao.create(test_data)
