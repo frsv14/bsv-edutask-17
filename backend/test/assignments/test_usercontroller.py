@@ -45,7 +45,7 @@ class TestUserController:
     @pytest.mark.unit
     def test_get_user_none(self, controller, mock_dao):
         # No users should be returned for this query
-        mock_dao.find.return_value = []
+        mock_dao.find.return_value = [{'firstName': 'John', 'lastName': 'Doe', 'email': testemail}, {'firstName': 'albin', 'lastName': 'Doe', 'email': testemail}]
 
         result = controller.get_user_by_email("test@test.com")
 
